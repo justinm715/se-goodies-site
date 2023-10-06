@@ -1,0 +1,21 @@
+---
+import Layout from "./Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title="Goodies">
+  <Container>
+    <h1 class="text-4xl mt-16 lg:text-5xl font-bold lg:tracking-tight">
+      {frontmatter.title}
+    </h1>
+    <p class="text-lg mt-4 text-slate-600">
+      {frontmatter.description}
+    </p>
+    <section class="max-w-screen-xl mx-auto my-20">
+      <slot />
+    </section>
+  </Container>
+</Layout>
