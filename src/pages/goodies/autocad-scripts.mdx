@@ -1,0 +1,37 @@
+---
+title: "AutoCAD Scripts"
+date: "2023-10-05"
+description: "Short project description here. lol"
+layout: ../../layouts/GoodieLayout.astro
+---
+
+import Code from "@components/code.astro";
+
+A collection of AutoCAD functions.
+
+<h2 class="text-3xl font-weight-700 mt-6 ">Extract Grid Points</h2>
+
+Establish the project grid quickly in RISA by copying over AutoCAD grid line endpoints.
+
+<ol class="list-decimal ml-6 mt-4">
+  <li>
+    In RISA, set Z-axis up (opposite gravity) and units to inches (or feet).
+  </li>
+  <li>
+    In AutoCAD, set your origin point (0,0) with <Code>UCS</Code> and units as decimal
+    inches (or feet, just be consistent with RISA) with 0.000 precision with <Code>UNITS</Code>. The origin is typically
+    at the lower left of plan view with X positive to the right and Y positive
+    up.
+  </li>
+  <li>
+    Select the grid lines you want and run <Code>EXTRACTGRIDPOINTS</Code>. The
+    grid lines must be individual line objects (e.g., not in a block, group, or
+    external reference).
+  </li>
+  <li>
+    The function will record each line's start and end X and Y coordinates and
+    save it to <Code>C:\Users\%USERNAME%\Desktop\temp.txt</Code>. You can copy and paste these directly into the RISA Project Grid spreadsheet. Update the grid labels as appropriate for the project.
+  </li>
+</ol>
+
+
